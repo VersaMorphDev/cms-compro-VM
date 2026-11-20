@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --bg-canvas: #0B0D12;
+  --bg-bento: #14171E;
+  --bg-bento-elevated: #1C2029;
+  --bg-light-surface: #FFFFFF;
+  --bg-light-subtle: #F1F5F9;
+  --border-dark: rgba(255, 255, 255, 0.08);
+  --border-dark-bright: rgba(255, 255, 255, 0.16);
+  --lime-accent: #86FF00;
+  --lime-accent-hover: #9BFF2E;
+  --text-dark: #090A0F;
+}
+
+@theme inline {
+  --color-canvas: var(--bg-canvas);
+  --color-bento: var(--bg-bento);
+  --color-bento-elevated: var(--bg-bento-elevated);
+  --color-lime-accent: var(--lime-accent);
+  --color-lime-accent-hover: var(--lime-accent-hover);
+
+  --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .bg-diagonal-hatch {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.03),
+      rgba(255, 255, 255, 0.03) 6px,
+      transparent 6px,
+      transparent 12px
+    );
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
